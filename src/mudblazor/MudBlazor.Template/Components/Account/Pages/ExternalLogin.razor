@@ -105,8 +105,8 @@
 
         // Sign in the user with this external login provider if the user already has a login.
         var result = await SignInManager.ExternalLoginSignInAsync(
-            externalLoginInfo.LoginProvider,
-            externalLoginInfo.ProviderKey,
+            externalLoginInfo!.LoginProvider,
+            externalLoginInfo!.ProviderKey,
             isPersistent: false,
             bypassTwoFactor: true);
 
@@ -174,7 +174,7 @@
         message = $"Error: {string.Join(",", result.Errors.Select(error => error.Description))}";
     }
 
-    private ApplicationUser CreateUser()
+    private static ApplicationUser CreateUser()
     {
         try
         {
